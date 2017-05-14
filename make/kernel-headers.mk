@@ -45,6 +45,7 @@ $(LINUX_DIR)/.configured: $(LINUX_DIR)/.unpacked
 	touch $(LINUX_DIR)/include/linux/autoconf.h;
 	echo "#define UTS_RELEASE \"2.4.21\"" > $(LINUX_DIR)/include/linux/version.h;
 	echo "#define LINUX_VERSION_CODE 132117" >> $(LINUX_DIR)/include/linux/version.h;
+	#echo "#define LINUX_VERSION_CODE 132120" >> $(LINUX_DIR)/include/linux/version.h;
 	echo "#define KERNEL_VERSION(a,b,c) (((a) << 16) + ((b) << 8) + (c))" >> \
 		$(LINUX_DIR)/include/linux/version.h;
 	touch $(LINUX_DIR)/.configured

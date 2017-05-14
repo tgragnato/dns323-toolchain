@@ -87,6 +87,7 @@ EXTRA_GCC_CONFIG_OPTIONS:=
 # Enable the following if you want locale/gettext/i18n support.
 # NOTE!  Currently the pregnerated locale stuff only works for x86!
 ENABLE_LOCALE:=false
+#ENABLE_LOCAL:=true
 
 # If you want multilib enabled, enable this...
 MULTILIB:=--enable-multilib
