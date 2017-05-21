@@ -13,7 +13,7 @@ else
 UCLIBC_DIR:=$(TOOL_BUILD_DIR)/uClibc-0.9.28
 UCLIBC_SOURCE:=uClibc-0.9.28.tar.bz2
 #Wilson11182005+
-UCLIBC_SITE:=http://www.uclibc.org/downloads
+UCLIBC_SITE:=https://uclibc.org/downloads/old-releases/
 endif
 
 UCLIBC_TARGET_ARCH:=$(shell echo $(ARCH) | sed -e s'/-.*//' \
@@ -179,4 +179,3 @@ uclibc_target-clean:
 
 uclibc_target-dirclean:
 	rm -f $(TARGET_DIR)/include
-
