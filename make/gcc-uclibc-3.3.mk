@@ -19,17 +19,9 @@
 
 ifneq ($(GCC_2_95_TOOLCHAIN),true)
 
-# Shiny new stuff...
 GCC_VERSION:=3.3.3
-GCC_SITE:=ftp://ftp.gnu.org/gnu/gcc/releases/gcc-$(GCC_VERSION)
-#GCC_SITE:=http://www.binarycode.org/gcc/releases/gcc-$(GCC_VERSION)
-#GCC_SITE:=http://gcc.get-software.com/releases/gcc-$(GCC_VERSION)
+GCC_SITE:=http://gcc.skazkaforyou.com/releases/gcc-$(GCC_VERSION)
 
-#
-# snapshots....
-#GCC_VERSION:=3.3-20031013
-#GCC_SITE:=http://gcc.get-software.com/snapshots/$(GCC_VERSION)
-#
 GCC_SOURCE:=gcc-$(GCC_VERSION).tar.bz2
 GCC_DIR:=$(TOOL_BUILD_DIR)/gcc-$(GCC_VERSION)
 GCC_CAT:=bzcat
