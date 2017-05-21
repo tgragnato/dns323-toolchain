@@ -3,10 +3,10 @@
 # build binutils for use on the host system
 #
 #############################################################
-BINUTILS_SITE:=http://ftp.kernel.org/pub/linux/devel/binutils
-BINUTILS_SOURCE:=binutils-2.14.90.0.7.tar.bz2
+BINUTILS_SITE:=http://kernel.org/pub/linux/devel/binutils
+BINUTILS_SOURCE:=binutils-2.14.90.0.7.tar.gz
 BINUTILS_DIR:=$(TOOL_BUILD_DIR)/binutils-2.14.90.0.7
-BINUTILS_CAT:=bzcat
+BINUTILS_CAT:=gzcat
 
 BINUTILS_DIR1:=$(TOOL_BUILD_DIR)/binutils-build
 
@@ -42,7 +42,7 @@ $(BINUTILS_DIR1)/binutils/objdump: $(BINUTILS_DIR1)/.configured
 
 # Make install will put gettext data in staging_dir/share/locale.
 # Unfortunatey, it isn't configureable.
-$(STAGING_DIR)/$(REAL_GNU_TARGET_NAME)/bin/ld: $(BINUTILS_DIR1)/binutils/objdump 
+$(STAGING_DIR)/$(REAL_GNU_TARGET_NAME)/bin/ld: $(BINUTILS_DIR1)/binutils/objdump
 	$(MAKE) $(JLEVEL) -C $(BINUTILS_DIR1) install
 
 binutils-dependancies:
@@ -54,7 +54,7 @@ binutils-dependancies:
 		echo -e "\n\nYou must install 'flex' on your build machine\n"; \
 		exit 1; \
 	fi;
-	@if [ ! -x /usr/bin/msgfmt ] ; then \
+	@if [ ! -x /usr/bin/msgfmt && ! -x /usr/local/bin/msgfmt ] ; then \
 		echo -e "\n\nYou must install 'gettext' on your build machine\n"; \
 		exit 1; \
 	fi;
@@ -99,7 +99,7 @@ $(BINUTILS_DIR2)/binutils/objdump: $(BINUTILS_DIR2)/.configured
 	PATH=$(TARGET_PATH) \
 	$(MAKE) $(JLEVEL) -C $(BINUTILS_DIR2) all
 
-$(TARGET_DIR)/usr/bin/ld: $(BINUTILS_DIR2)/binutils/objdump 
+$(TARGET_DIR)/usr/bin/ld: $(BINUTILS_DIR2)/binutils/objdump
 	PATH=$(TARGET_PATH) \
 	$(MAKE) $(JLEVEL) DESTDIR=$(TARGET_DIR) \
 		tooldir=/usr build_tooldir=/usr \
@@ -107,7 +107,7 @@ $(TARGET_DIR)/usr/bin/ld: $(BINUTILS_DIR2)/binutils/objdump
 	#rm -rf $(TARGET_DIR)/share/locale $(TARGET_DIR)/usr/info \
 	#	$(TARGET_DIR)/usr/man $(TARGET_DIR)/usr/share/doc
 	-$(STRIP) $(TARGET_DIR)/usr/$(REAL_GNU_TARGET_NAME)/bin/* > /dev/null 2>&1
-	-$(STRIP) $(TARGET_DIR)/usr/bin/* > /dev/null 2>&1 
+	-$(STRIP) $(TARGET_DIR)/usr/bin/* > /dev/null 2>&1
 
 binutils_target: $(GCC_DEPENDANCY) $(TARGET_DIR)/usr/bin/ld
 
@@ -117,4 +117,3 @@ binutils_target-clean:
 
 binutils_target-dirclean:
 	rm -rf $(BINUTILS_DIR2)
-
