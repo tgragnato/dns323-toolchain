@@ -1,0 +1,17 @@
+<config>
+	<apkg>
+		<item>
+			<procudt_id>0</procudt_id>
+			<custom_id>8</custom_id>
+			<model_id>1</model_id>
+			<name>dropbear.SSH</name>
+			<show>dropbear.SSH</show>
+			<enable>0</enable>
+			<version>2012.55</version>
+			<date>20120224</date>
+			<path>/mnt/HD_a2/Nas_Prog/dropbear</path>
+			<ps_name>dont_check</ps_name>
+			<url>NULL</url>
+		</item>
+	</apkg>
+</config>
