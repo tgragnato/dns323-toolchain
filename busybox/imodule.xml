@@ -1,0 +1,17 @@
+<config>
+	<apkg>
+		<item>
+			<procudt_id>0</procudt_id>
+			<custom_id>8</custom_id>
+			<model_id>1</model_id>
+			<name>telnet</name>
+			<show>telnet</show>
+			<enable>1</enable>
+			<version>busybox 1.20.2</version>
+			<date>20120702</date>
+			<path>/mnt/HD_a2/Nas_Prog/busybox</path>
+			<ps_name>dont_check</ps_name>
+			<url>NULL</url>
+		</item>
+	</apkg>
+</config>
